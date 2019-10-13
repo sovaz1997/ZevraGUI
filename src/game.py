@@ -16,7 +16,7 @@ class Game(QWidget):
         self.game = chess.pgn.read_game(pgn)
         self.board = Board(50)
 
-        self.moves = list(self.game.mainline_moves())
+        self.moves = list(self.game.mainline())
         self.currentPosition = 0
 
         self.initUI()
@@ -33,7 +33,7 @@ class Game(QWidget):
         print('>')
 
         if self.currentPosition < len(self.moves) - 1:
-            self.board.push(self.moves[self.currentPosition])
+            self.board.push(self.moves[self.currentPosition].move)
             self.currentPosition += 1
     
     def goBack(self):
