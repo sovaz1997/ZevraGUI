@@ -30,15 +30,11 @@ class Game(QWidget):
         self.board.setFen(game.board.fen())
 
     def goForward(self):
-        print('>')
-
         if self.currentPosition < len(self.moves) - 1:
             self.board.push(self.moves[self.currentPosition].move)
             self.currentPosition += 1
     
     def goBack(self):
-        print('>')
-
         if self.currentPosition > 0:
             self.board.pop()
             self.currentPosition -= 1
