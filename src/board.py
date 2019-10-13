@@ -3,7 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtSvg
 
-import chess
+import chess.pgn
 
 class Board(QWidget):
     def __init__(self, cellSize):
@@ -63,3 +63,20 @@ class Board(QWidget):
 
 
         qp.end()
+
+    def getFen(self):
+        return self.board.fen()
+    
+    # Slots
+
+    def setFen(self, fen):
+        self.board.set_fen(fen)
+        self.update()
+    
+    def push(self, move):
+        self.board.push(move)
+        self.update()
+    
+    def pop(self):
+        self.board.pop()
+        self.update()

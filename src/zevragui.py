@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 from game import Game
 
@@ -12,13 +13,17 @@ class ZevraGUI(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        #widget = QWidget(self)
         self.setCentralWidget(self.game)
 
         self.setWindowTitle('Zevra GUI')
         self.resize(1280, 720)
 
-        #layout = QVBoxLayout(widget)
-        #layout.addWidget(self.board)
-
         self.show()
+        
+    def keyPressEvent(self, e):
+        key = e.key()
+
+        if key == Qt.Key_Right:
+            self.game.goForward()
+        elif key == Qt.Key_Left:
+            self.game.goBack()
