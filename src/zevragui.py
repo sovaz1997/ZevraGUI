@@ -15,7 +15,7 @@ class ZevraGUI(QMainWindow):
         widget = QWidget(self)
         self.setCentralWidget(widget)
 
-        self.setWindowTitle('Main Window')
+        self.setWindowTitle('Zevra GUI')
         self.resize(640, 480)
 
         layout = QVBoxLayout(widget)
