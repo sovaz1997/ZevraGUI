@@ -17,15 +17,9 @@ class Game(QWidget):
         self.game = game
         self.board = Board(50)
 
-
         self.moves = list(self.game.mainline_moves())
         self.currentPosition = 0
 
-        print(self.board.getFen())
-
-        #self.goForward()
-        #self.goBack()
-        #self.goBack()
         self.initUI()
     
     def initUI(self):
