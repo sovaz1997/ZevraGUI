@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5 import QtSvg
 
 import chess
 
@@ -9,6 +11,25 @@ class Board(QWidget):
 
         self.board = chess.Board()
         self.size = size
+
+        self.pieceImages = [
+            [
+                QtSvg.QSvgRenderer('images/bP.svg'),
+                QtSvg.QSvgRenderer('images/bN.svg'),
+                QtSvg.QSvgRenderer('images/bB.svg'),
+                QtSvg.QSvgRenderer('images/bR.svg'),
+                QtSvg.QSvgRenderer('images/bQ.svg'),
+                QtSvg.QSvgRenderer('images/bK.svg'),
+            ],
+            [
+                QtSvg.QSvgRenderer('images/wP.svg'),
+                QtSvg.QSvgRenderer('images/wN.svg'),
+                QtSvg.QSvgRenderer('images/wB.svg'),
+                QtSvg.QSvgRenderer('images/wR.svg'),
+                QtSvg.QSvgRenderer('images/wQ.svg'),
+                QtSvg.QSvgRenderer('images/wK.svg'),
+            ]
+        ]
 
         self.initUI()
     
@@ -30,6 +51,17 @@ class Board(QWidget):
                     qp.setBrush(blackCell)
                 else:
                     qp.setBrush(whiteCell)
+                
+                y, x, w, h = i * cellSize, j * cellSize, cellSize, cellSize
+                qp.drawRect(x, y, w, h)
 
-                qp.drawRect(i * cellSize, j * cellSize, cellSize, cellSize)
+                piece = self.board.piece_at(chess.square(j, 7 - i))
+                if piece:
+                    bounds = QRectF(x, y, w, h)
+                    img = self.pieceImages[piece.color][piece.piece_type - 1]
+                    img.render(qp, bounds)
+                   # img.setGeometry(x, y, w, h)
+                    #img.show()
+
+
         qp.end()
