@@ -66,8 +66,6 @@ class Board(QWidget):
 
     def getFen(self):
         return self.board.fen()
-    
-    # Slots
 
     def setFen(self, fen):
         self.board.set_fen(fen)
