@@ -6,11 +6,11 @@ from PyQt5 import QtSvg
 import chess
 
 class Board(QWidget):
-    def __init__(self, size):
+    def __init__(self, cellSize):
         super().__init__()
 
         self.board = chess.Board()
-        self.size = size
+        self.cellSize = cellSize
 
         self.pieceImages = [
             [
@@ -39,12 +39,12 @@ class Board(QWidget):
     def paintEvent(self, e):
         qp = QPainter();
         qp.begin(self)
-        cellSize = self.size / 8;
 
         whiteCell = QColor(240, 217, 181)
         blackCell = QColor(181, 136, 99)
 
-        qp.setPen(QColor(0, 0, 0, 0))
+        qp.setPen(Qt.NoPen)
+
         for i in range(8):
             for j in range(8):
                 if (i + j) % 2 == 0:
@@ -52,7 +52,7 @@ class Board(QWidget):
                 else:
                     qp.setBrush(whiteCell)
                 
-                y, x, w, h = i * cellSize, j * cellSize, cellSize, cellSize
+                y, x, w, h = i * self.cellSize, j * self.cellSize, self.cellSize, self.cellSize
                 qp.drawRect(x, y, w, h)
 
                 piece = self.board.piece_at(chess.square(j, 7 - i))

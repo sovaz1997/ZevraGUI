@@ -7,7 +7,7 @@ class ZevraGUI(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.board = Board(320)
+        self.board = Board(50)
 
         self.initUI()
 
@@ -16,7 +16,7 @@ class ZevraGUI(QMainWindow):
         self.setCentralWidget(widget)
 
         self.setWindowTitle('Zevra GUI')
-        self.resize(640, 480)
+        self.resize(1280, 720)
 
         layout = QVBoxLayout(widget)
         layout.addWidget(self.board)
