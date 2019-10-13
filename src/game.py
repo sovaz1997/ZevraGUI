@@ -33,6 +33,7 @@ class Game(QWidget):
         if self.currentPosition < len(self.moves) - 1:
             self.board.push(self.moves[self.currentPosition].move)
             self.currentPosition += 1
+            print(self.moves[self.currentPosition].comment)
     
     def goBack(self):
         if self.currentPosition > 0:
