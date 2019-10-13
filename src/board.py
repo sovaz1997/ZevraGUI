@@ -60,8 +60,6 @@ class Board(QWidget):
                     bounds = QRectF(x, y, w, h)
                     img = self.pieceImages[piece.color][piece.piece_type - 1]
                     img.render(qp, bounds)
-                   # img.setGeometry(x, y, w, h)
-                    #img.show()
 
 
         qp.end()
