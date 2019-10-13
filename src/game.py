@@ -12,9 +12,8 @@ class Game(QWidget):
         super().__init__()
 
         pgn = open('tcec.pgn')
-        game = chess.pgn.read_game(pgn)
 
-        self.game = game
+        self.game = chess.pgn.read_game(pgn)
         self.board = Board(50)
 
         self.moves = list(self.game.mainline_moves())
