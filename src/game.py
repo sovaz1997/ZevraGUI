@@ -21,7 +21,7 @@ class GameModel:
 
     def goForward(self):
         if self.currentPosition < len(self.moves) - 1:
-            self.board.push(self.moves[self.currentPosition].move)
+            self.board.push(self.getCurrentNode().move)
             self.currentPosition += 1
             return True
         return False
@@ -35,6 +35,9 @@ class GameModel:
 
     def getBoard(self):
         return self.board
+    
+    def getCurrentNode(self):
+        return self.moves[self.currentPosition]
 
 class GameView(QWidget):
     def __init__(self, parent, cellSize):
