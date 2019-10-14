@@ -5,6 +5,7 @@ from PyQt5 import QtSvg
 
 import chess.pgn
 
+from move import Move
 
 class GameModel:
     def __init__(self):
@@ -13,7 +14,8 @@ class GameModel:
         self.game = chess.pgn.read_game(self.pgnSrc)
         self.board = self.game.board()
 
-        self.moves = list(self.game.mainline())
+        self.moves = [Move(i) for i in list(self.game.mainline())]
+
         self.currentPosition = 0
     
     def __del__(self):
