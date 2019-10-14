@@ -118,12 +118,16 @@ class GameController:
         self.model = GameModel()
 
     def goForward(self):
-        self.model.goForward()
-        self.view.update()
+        res = self.model.goForward()
+        
+        if res:
+            self.view.update()
     
     def goBack(self):
-        self.model.goBack()
-        self.view.update()
+        res = self.model.goBack()
+        
+        if res:
+            self.view.update()
     
     def getBoardState(self):
         return self.model.getBoard()
