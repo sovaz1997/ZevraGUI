@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-from gamemodule import GameView
+from game import GameView
 
 class ZevraGUI(QMainWindow):
     def __init__(self):
