@@ -50,5 +50,5 @@ class Game(QWidget):
     def wheelEvent(self, e):
         if e.angleDelta().y() < 0:
             self.goForward()
-        else :
+        else:
             self.goBack()
