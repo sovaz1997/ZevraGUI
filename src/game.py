@@ -38,3 +38,17 @@ class Game(QWidget):
         if self.currentPosition > 0:
             self.board.pop()
             self.currentPosition -= 1
+
+    def keyPressEvent(self, e):
+        key = e.key()
+
+        if key == Qt.Key_Right:
+            self.goForward()
+        elif key == Qt.Key_Left:
+            self.goBack()
+    
+    def wheelEvent(self, e):
+        if e.angleDelta().y() < 0:
+            self.goForward()
+        else :
+            self.goBack()

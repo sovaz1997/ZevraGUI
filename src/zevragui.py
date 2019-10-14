@@ -14,16 +14,9 @@ class ZevraGUI(QMainWindow):
 
     def initUI(self):
         self.setCentralWidget(self.game)
+        self.game.setFocus()
 
         self.setWindowTitle('Zevra GUI')
         self.resize(1280, 720)
 
         self.show()
-        
-    def keyPressEvent(self, e):
-        key = e.key()
-
-        if key == Qt.Key_Right:
-            self.game.goForward()
-        elif key == Qt.Key_Left:
-            self.game.goBack()
