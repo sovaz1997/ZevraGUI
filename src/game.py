@@ -8,6 +8,7 @@ import numpy as np
 
 from move import Move
 from board import BoardView
+from graph import GraphView
 import defs
 
 class GameModel:
@@ -50,12 +51,15 @@ class GameView(QWidget):
 
         self.controller = GameController(self)
         self.boardView = BoardView(self, self.controller, 50)
+        
+        self.evalView = GraphView(self)
 
         self.initUI()
     
     def initUI(self):
         layout = QHBoxLayout()
         layout.addWidget(self.boardView)
+        layout.addWidget(self.evalView)
         self.setLayout(layout)
 
         self.show()
