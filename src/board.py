@@ -31,10 +31,11 @@ class BoardView(QWidget):
             ]
         ]
 
-        self.resize(self.cellSize * 8, self.cellSize * 8)
         self.initUI()
     
     def initUI(self):
+        self.resize(self.cellSize * 8, self.cellSize * 8)
+
         self.show()
     
     def paintEvent(self, e):
