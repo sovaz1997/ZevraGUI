@@ -12,18 +12,6 @@ class Move:
         self.parse(gameNode.comment)
     
     def parse(self, comment):
-        '''
-        d - depth
-        sd - seldepth
-        mt - move time
-        tl - total time
-        s - speed
-        n - nodes
-        pv - pv
-        h - hash
-        wv - white eval
-        '''
-
         comment = multipleSplit(comment, [', ', '='])
         print(comment)
 
@@ -46,5 +34,3 @@ class Move:
                 self.hashFill = float(comment[i + 1])
             elif comment[i] == 'sd':
                 self.selDepth = float(comment[i + 1])
-            
-        print(self.move, self.color)
