@@ -7,7 +7,7 @@ from game import GameView
 class ZevraGUI(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.game = GameView(self, 50)
+        self.game = GameView(self)
         self.initUI()
 
     def initUI(self):
