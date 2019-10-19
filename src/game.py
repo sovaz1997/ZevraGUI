@@ -5,7 +5,6 @@ from PyQt5 import QtSvg
 
 import chess.pgn
 import numpy as np
-import pyqtgraph as pg
 
 from move import Move
 from board import BoardView
@@ -47,7 +46,7 @@ class GameModel:
 
 class GameView(QWidget):
     def __init__(self, parent):
-        super(QWidget, self).__init__(parent)
+        super(QWidget, self).__init__(parent=parent)
 
         self.controller = GameController(self)
         self.boardView = BoardView(self, self.controller, 50)

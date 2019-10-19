@@ -7,7 +7,7 @@ import chess.pgn
 
 class BoardView(QWidget):
     def __init__(self, parent, controller, cellSize):
-        super(QWidget, self).__init__(parent)
+        super(QWidget, self).__init__(parent=parent)
 
         self.cellSize = cellSize
         self.controller = controller
@@ -31,13 +31,14 @@ class BoardView(QWidget):
             ]
         ]
 
+        self.resize(self.cellSize * 8, self.cellSize * 8)
         self.initUI()
     
     def initUI(self):
         self.show()
     
     def paintEvent(self, e):
-        qp = QPainter();
+        qp = QPainter(self);
         qp.begin(self)
 
         whiteCell = QColor(240, 217, 181)
