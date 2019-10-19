@@ -14,7 +14,6 @@ class Move:
     
     def parse(self, comment):
         comment = multipleSplit(comment, [', ', '='])
-        print(comment)
 
         for i in range(len(comment)):
             if comment[i] == 'd':

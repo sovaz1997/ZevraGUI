@@ -6,8 +6,8 @@ from PyQt5 import QtSvg
 import chess.pgn
 
 class BoardView(QWidget):
-    def __init__(self, controller, cellSize):
-        super(QWidget, self).__init__()
+    def __init__(self, parent, controller, cellSize):
+        super(QWidget, self).__init__(parent)
 
         self.cellSize = cellSize
         self.controller = controller
