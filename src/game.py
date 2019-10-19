@@ -47,7 +47,7 @@ class GameView(QWidget):
         super(QWidget, self).__init__(parent)
 
         self.controller = GameController(self)
-        self.boardView = BoardView(self, self.controller, 50)
+        self.boardView = BoardView(self.controller, 100)
 
         self.initUI()
     
