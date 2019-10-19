@@ -45,7 +45,6 @@ class BoardView(QWidget):
 
         qp.setPen(Qt.NoPen)
 
-
         board = self.controller.getBoardState()
 
         for i in range(8):

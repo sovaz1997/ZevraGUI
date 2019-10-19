@@ -4,9 +4,11 @@ from PyQt5.QtCore import *
 from PyQt5 import QtSvg
 
 import chess.pgn
+import numpy as np
 
 from move import Move
 from board import BoardView
+import defs
 
 class GameModel:
     def __init__(self):
@@ -91,3 +93,17 @@ class GameController:
     
     def getBoardState(self):
         return self.model.getBoard()
+    
+    def getEvals(self):
+        white = np.array(0, dtype=float)
+        black = np.array(0, dtype=float)
+
+        for i in self.model.moves:
+            eval = i.eval
+            color = i.color
+
+            if color == WHITE:
+                white.append(eval)
+            else:
+                black.append(eval)
+        return white, black

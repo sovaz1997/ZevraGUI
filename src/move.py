@@ -1,4 +1,5 @@
 from chess.pgn import GameNode
+import defs
 
 def multipleSplit(s, splits):
     for i in splits:
@@ -30,7 +31,5 @@ class Move:
                 self.nodesCount = int(comment[i + 1])
             elif comment[i] == 'pv':
                 self.pv = comment[i + 1]
-            elif comment[i] == 'h':
-                self.hashFill = float(comment[i + 1])
-            elif comment[i] == 'sd':
-                self.selDepth = float(comment[i + 1])
+            elif comment[i] == 'wv':
+                self.eval = float(comment[i + 1])
